@@ -2,7 +2,7 @@ import { useRef } from 'react';
 import classes from './NewMeetupForm.module.css'
 import Card from '../ui/Card';
 
-function NewMeetupForm() {
+function NewMeetupForm(props) {
    // useRef retorna un objeto que me permite acceder al valor del input referenciado
    const titleInputRef = useRef();
    const imageInputRef = useRef();
@@ -20,7 +20,8 @@ function NewMeetupForm() {
          description: descriptionInputRef.current.value
       }
 
-      console.log(formValues)
+      // Enviar solicitud http
+      props.createMeetup(formValues)
    }
 
    return (
